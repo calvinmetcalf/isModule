@@ -1,0 +1,23 @@
+{
+  "name": "ismodule",
+  "version": "0.0.0",
+  "description": "test if something is an es6 module",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calvinmetcalf/isModule.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "esprima": "thomasboyt/esprima#4be906f1abcbb",
+    "estraverse": "^1.5.0"
+  },
+  "devDependencies": {
+    "tape": "^2.13.3",
+    "multiline": "^0.3.4"
+  }
+}
