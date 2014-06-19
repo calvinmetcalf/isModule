@@ -4,7 +4,7 @@ var multiline = require('multiline');
 
 
 test('find export', function (t) {
-  t.plan(8);
+  t.plan(10);
   t.ok(isModule(multiline(function (){/*
       export default function () {};
   */})), 'default export function');
@@ -36,6 +36,14 @@ test('find export', function (t) {
         foo() {}
       };
   */})), 'default export class');
+  t.ok(isModule(multiline(function (){/*
+      import name from 'path';
+      let namer = 'foo';
+  */})), 'import name from \'path\'');
+  t.ok(isModule(multiline(function (){/*
+      import {name, otherNAme} from 'path'
+      let namer = 'foo';
+  */})), 'import {name, otherNAme} from \'path\'');
   t.notOk(isModule(multiline(function (){/*
       let d = 9;
       module.exports = d;
