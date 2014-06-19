@@ -1,4 +1,4 @@
-isModule
+isModule [![Build Status](https://travis-ci.org/calvinmetcalf/isModule.svg)](https://travis-ci.org/calvinmetcalf/isModule)
 ===
 
 Test if a string is an es6 module.
