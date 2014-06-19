@@ -43,7 +43,7 @@ test('find export', function (t) {
   t.ok(isModule(multiline(function (){/*
       import {name, otherNAme} from 'path'
       let namer = 'foo';
-  */})), 'import {name, otherNAme} from \'path\'');
+  */})), 'import {name, otherName} from \'path\'');
   t.notOk(isModule(multiline(function (){/*
       let d = 9;
       module.exports = d;
