@@ -35,7 +35,7 @@ test('find export', function (t) {
         }
         foo() {}
       };
-  */})), 'default export anonymous class');
+  */})), 'default export class');
   t.notOk(isModule(multiline(function (){/*
       let d = 9;
       module.exports = d;

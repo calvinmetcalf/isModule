@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "esprima": "thomasboyt/esprima#4be906f1abcbb",
+    "esprima": "vslinko-forks/esprima#harmony-export-default",
     "estraverse": "^1.5.0"
   },
   "devDependencies": {

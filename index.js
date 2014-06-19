@@ -5,13 +5,7 @@ var rx2 = /export\s+default\s+class\s+{/;
 module.exports = function (string) {
     var found = false;
     if (rx.test(string)) {
-        var ast = tryParse(string);
-        if (!ast) {
-            return found;
-        } if (ast === true) {
-            return ast;
-        }
-        estraverse.traverse(ast, {
+        estraverse.traverse(esprima.parse(string), {
             enter: function (node) {
                 if (node.type === 'ExportDeclaration' || node.type === 'ExportSpecifier' || node.type === 'ExportBatchSpecifier') {
                     found = true;
@@ -22,17 +16,3 @@ module.exports = function (string) {
     } 
     return found;
 };
-
-function tryParse(string) {
-    var regexed;
-    try {
-        return esprima.parse(string);
-    } catch (e) {
-        if (e.description === 'Unexpected token {') {
-            regexed = string.match(rx2);
-            if (e.index + 1 === regexed.index + regexed[0].length) {
-                return true;
-            }
-        }
-    }
-}
