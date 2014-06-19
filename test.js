@@ -4,7 +4,7 @@ var multiline = require('multiline');
 
 
 test('find export', function (t) {
-  t.plan(7);
+  t.plan(8);
   t.ok(isModule(multiline(function (){/*
       export default function () {};
   */})), 'default export function');
@@ -28,6 +28,14 @@ test('find export', function (t) {
       }
       export default bar;
   */})), 'default export class');
+  t.ok(isModule(multiline(function (){/*
+      export default class {
+        constructor () {
+          
+        }
+        foo() {}
+      };
+  */})), 'default export anonymous class');
   t.notOk(isModule(multiline(function (){/*
       let d = 9;
       module.exports = d;
