@@ -1,7 +1,6 @@
 var esprima = require('esprima');
 var estraverse = require('estraverse');
 var rx = /(?:export\s+(?:default|let|const|var|function|class|{))|import/;
-var rx2 = /export\s+default\s+class\s+{/;
 module.exports = function (string) {
     var found = false;
     var depth = 0;
